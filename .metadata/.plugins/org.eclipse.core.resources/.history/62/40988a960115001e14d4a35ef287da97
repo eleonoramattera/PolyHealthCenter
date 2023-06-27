@@ -1,0 +1,63 @@
+package PolyHealthCenter.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import PolyHealthCenter.model.Terapia;
+import PolyHealthCenter.model.Utente;
+import PolyHealthCenter.repository.TerapiaDAORepository;
+import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityNotFoundException;
+
+
+@Service
+public class TerapiaService {
+	@Autowired TerapiaDAORepository repo;
+	
+
+	//JPA METHODS
+	// getAll
+	public List<Terapia> getAll(){
+		return repo.findAll();
+		
+	}
+	
+	//getByID
+	public Terapia getById(Long id) {
+	  if (!repo.existsById(id)) {
+		throw new EntityNotFoundException("Terapia non esiste!");
+		}
+		return repo.findById(id).get();
+		}
+		
+	//create
+	public Terapia createUtente(Terapia terapia) {
+	// Gestione di un errore | email già presente
+	 if(repo.existsById(terapia.getId())) {
+		throw new EntityNotFoundException("ID già presente");
+		 }
+		return repo.save(terapia);
+		}
+		
+		//update
+		public Utente updateUtente(Utente utente, Long id) {
+			if (repo.existsById(id)) {
+				throw new EntityExistsException(" Utente [id:" + utente.getId() + "] non esiste");
+			}
+			repo.save(utente);
+			return utente;
+		}
+		
+		
+		//remove
+		public String removeUtente(Long id) {
+			if (!repo.existsById(id)) {
+				throw new EntityExistsException("Utente not found");
+			}
+			repo.deleteById(id);
+			return "Utente cancellato!";
+		}
+		
+}
