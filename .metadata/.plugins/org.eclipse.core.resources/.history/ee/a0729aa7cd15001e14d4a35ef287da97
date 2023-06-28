@@ -43,7 +43,6 @@ public Prenotazione updatePrenotazione(Long id, Prenotazione prenotazione) {
 		prenotazioneUpdate.setDataPrenotazione(prenotazione.getDataPrenotazione());
 		prenotazioneUpdate.setTerapia(prenotazione.getTerapia());
 		prenotazioneUpdate.setUtente(prenotazione.getUtente());
-		prenotazioneUpdate.setSede(prenotazione.getSede());
 		repo.save(prenotazioneUpdate);
 		return prenotazioneUpdate;
 	} else {
