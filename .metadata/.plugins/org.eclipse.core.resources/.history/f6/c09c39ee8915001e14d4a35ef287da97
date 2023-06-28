@@ -1,0 +1,15 @@
+package PolyHealthCenter.repository;
+
+import java.awt.print.Pageable;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import PolyHealthCenter.model.Sede;
+
+public interface SedeDAORepository extends JpaRepository<Sede, Long>,  PagingAndSortingRepository<Sede, Long>{
+
+	Page<Sede> findByComune(String comune, Pageable pageable);
+	Page<Sede> findByRegionr(String regione, Pageable pageable);
+}

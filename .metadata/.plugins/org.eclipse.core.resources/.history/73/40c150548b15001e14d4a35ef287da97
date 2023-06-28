@@ -1,0 +1,11 @@
+package PolyHealthCenter.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import PolyHealthCenter.repository.PrenotazioneDAORepository;
+
+@Service
+public class PrenotazioneService {
+	@Autowired PrenotazioneDAORepository repo;
+
+}

@@ -1,0 +1,12 @@
+package PolyHealthCenter.exception;
+
+public class PrenotazioneException extends RuntimeException {
+
+	private static final long serialVersionUID = 123456789;
+
+	public PrenotazioneException(String message) {
+		super(message);
+	}
+ 
+
+}

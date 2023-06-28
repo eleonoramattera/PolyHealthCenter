@@ -1,0 +1,86 @@
+package PolyHealthCenter.service;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import PolyHealthCenter.repository.PrenotazioneDAORepository;
+import PolyHealthCenter.model.Prenotazione;
+import PolyHealthCenter.model.Terapia;
+import PolyHealthCenter.model.Utente;
+import PolyHealthCenter.exception.PrenotazioneException;
+
+@Service
+public class PrenotazioneService {
+	@Autowired PrenotazioneDAORepository repo;
+	
+
+	//JPA METHODS
+
+//getByID
+public Optional<Prenotazione> getById(Long id) {
+	return repo.findById(id);
+}
+
+//getAll
+public List<Prenotazione> getAll() {
+	return repo.findAll();
+}
+
+//create
+public Prenotazione createPrenotazione(Prenotazione postazione) {
+	return repo.save(postazione);
+}
+
+//update
+public Prenotazione updatePrenotazione(Long id, Prenotazione prenotazione) {
+	Optional<Prenotazione> prenotazioneResult = repo.findById(id);
+
+	if (prenotazioneResult.isPresent()) {
+		Prenotazione prenotazioneUpdate = prenotazioneResult.get();
+		prenotazioneUpdate.setDataPrenotazione(prenotazione.getDataPrenotazione());
+		prenotazioneUpdate.setTerapia(prenotazione.getTerapia());
+		prenotazioneUpdate.setUtente(prenotazione.getUtente());
+		repo.save(prenotazioneUpdate);
+		return prenotazioneUpdate;
+	} else {
+		throw new PrenotazioneException("Prenotazione non aggiornata");
+	}
+
+}
+
+//delete
+public void deletePrenotazione(Long id) {
+	repo.deleteById(id);
+}
+
+
+
+public void salvaPrenotazione(Prenotazione p) {
+	List<Prenotazione> listaperUtente = findByUtenteAndDataPrenotazione(p.getUtente(), p.getDataPrenotazione());
+	List<Prenotazione> listperTerapia = listByTerapiaAndDataPrenotazione(p.getTerapia(), p.getDataPrenotazione());
+	if (listaperUtente.size() > 0) {
+		System.out.println("ESISTE GIA UNA PRENOTAZIONE PER LA DATA RICHIESTA");
+	} else if (listperTerapia.size() > 0 ) {
+		System.out.println("-> LA TERAPIA CHE VUOI PRENOTARE E' GIA OCCUPATA NELLA DATA RICHIESTA");			
+	} else {
+	repo.save(p);
+	System.out.println("Prenotazione della terapia è stata aggiunta al DB!");
+	}
+}
+
+private List<Prenotazione> listByTerapiaAndDataPrenotazione(Terapia terapia, LocalDate dataPrenotazione) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+private List<Prenotazione> findByUtenteAndDataPrenotazione(Utente utente, LocalDate dataPrenotazione) {
+	
+	return null;
+}
+
+
+
+}

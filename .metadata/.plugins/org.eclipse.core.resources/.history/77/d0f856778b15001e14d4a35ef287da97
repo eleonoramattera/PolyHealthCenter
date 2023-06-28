@@ -1,0 +1,52 @@
+package PolyHealthCenter.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import PolyHealthCenter.repository.PrenotazioneDAORepository;
+import PolyHealthCenter.model.Prenotazione;
+
+@Service
+public class PrenotazioneService {
+	@Autowired PrenotazioneDAORepository repo;
+	
+
+	//JPA METHODS
+
+//getByID
+public Optional<Prenotazione> getById(Long id) {
+	return repo.findById(id);
+}
+
+//getAll
+public List<Prenotazione> getAll() {
+	return repo.findAll();
+}
+
+//create
+public Prenotazione createPrenotazione(Prenotazione postazione) {
+	return repo.save(postazione);
+}
+
+//update
+public Prenotazione update(Long id, Prenotazione prenotazione) {
+	Optional<Prenotazione> prenotazioneResult = repo.findById(id);
+
+	if (prenotazioneResult.isPresent()) {
+		Prenotazione prenotazioneUpdate = prenotazioneResult.get();
+		prenotazioneUpdate.setDataPrenotazione(prenotazione.getDataPrenotazione());
+		prenotazioneUpdate.setTerapia(prenotazione.getTerapia());
+		prenotazioneUpdate.setUtente(prenotazione.getUtente());
+		repo.save(prenotazioneUpdate);
+		return prenotazioneUpdate;
+	} else {
+		throw new Exception("Elemento non aggiornato");
+	}
+
+}
+
+public void delete(Long id) {
+	prenotazioneRepository.deleteById(id);
+}

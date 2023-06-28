@@ -1,0 +1,5 @@
+package PolyHealthCenter.model;
+
+public class Prenotazione {
+
+}

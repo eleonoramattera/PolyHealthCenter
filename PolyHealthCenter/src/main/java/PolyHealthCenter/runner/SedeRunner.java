@@ -20,6 +20,8 @@ public class SedeRunner implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		System.out.println("sedi runner..");
+		
 		if (repo.findAll().isEmpty()) {
 
 			setSedi();
