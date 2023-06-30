@@ -31,64 +31,64 @@ public class PrenotazioneRunner  implements ApplicationRunner {
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-//		System.out.println("*** START***");
-//		System.out.println("Benvenuto nel sistema GestionePrenotazioni!");
-//		System.out.print("Scegli il tuo id Utente:");
-//		Long uid = scan.nextLong();
-//		try {
-//			utente = utenteservice.getById(uid);
-//		} catch (Exception e) {
-//			System.out.print("L'utente selezionato non esiste");
-//			System.exit(1);
-//		}
-//		while (true) {
-//			menuPrincipale();
-//		}
+		System.out.println("*** START***");
+		System.out.println("Benvenuto nel sistema GestionePrenotazioni!");
+		System.out.print("Scegli il tuo id Utente:");
+		Long uid = scan.nextLong();
+		try {
+			utente = utenteservice.getById(uid);
+		} catch (Exception e) {
+			System.out.print("L'utente selezionato non esiste");
+			System.exit(1);
+		}
+		while (true) {
+			menuPrincipale();
+		}
 		
 	}
 	
-//	public void menuPrincipale() {
-//		System.out.println("Ciao " + utente.getNome() + utente.getCognome() + "! Cosa vuoi fare?");
-//		System.out.println("1 - ELENCO PRENOTAZIONI A TUO NOME");
-////		System.out.println("2 - CERCA TERAPIA PER REGIONE");
-////		System.out.println("3 - CERCA POSTAZIONE PER TIPOLOGIA");
-//		System.out.println("2 - INSERISCI NUOVA PRENOTAZIONE");
-//		System.out.println("0 - ESCI DALL'APPLICAZIONE");
-//		int scelta = scan.nextInt();
-//		switch (scelta) {
-//		case 1:
-//			List<Prenotazione> prenota = prenotazioneservice.getByUtente(utente);
-//			if (prenota.size() > 0) {				
-//				prenota.forEach(el -> System.out.println(el));
-//			} else {
-//				System.out.println("Non esistono prenotazioni a tuo nome!!");
-//			}
-//			break;
-//		case 2:
-//			System.out.print("Inserisci l'ID della terapia da prenotare");
-//			Long terapiaid = scan.nextLong();
-//			Terapia terapia = null;
-//			try {
-//				terapia = terapiaservice.getById(terapiaid);
-//			} catch (Exception e) {
-//				System.out.println("Terapia inesistente!!!");
-//				break;
-//			}
-//			System.out.print("Inserisci la data della prenotazione");
-//			LocalDate data = genData();
-//			prenotazioneservice.salvaPrenotazione(new Prenotazione());
-//			scan.nextLine();
-//			break;
-//		case 0:
-//			System.out.print("Richiesta Chiusura dall'utente!");
-//			System.exit(0);
-//			break;
-//		default:
-//			System.out.print("Scelta non valida!!!");
-//			break;
-//		}
-//		
-//	}
+	public void menuPrincipale() {
+		System.out.println("Ciao " + utente.getNome() + utente.getCognome() + "! Cosa vuoi fare?");
+		System.out.println("1 - ELENCO PRENOTAZIONI A TUO NOME");
+		System.out.println("2 - CERCA TERAPIA PER REGIONE");
+		System.out.println("3 - CERCA POSTAZIONE PER TIPOLOGIA");
+		System.out.println("2 - INSERISCI NUOVA PRENOTAZIONE");
+		System.out.println("0 - ESCI DALL'APPLICAZIONE");
+		int scelta = scan.nextInt();
+		switch (scelta) {
+		case 1:
+			List<Prenotazione> prenota = prenotazioneservice.getByUtente(utente);
+			if (prenota.size() > 0) {				
+				prenota.forEach(el -> System.out.println(el));
+			} else {
+				System.out.println("Non esistono prenotazioni a tuo nome!!");
+			}
+			break;
+		case 2:
+			System.out.print("Inserisci l'ID della terapia da prenotare");
+			Long terapiaid = scan.nextLong();
+			Terapia terapia = null;
+			try {
+				terapia = terapiaservice.getById(terapiaid);
+			} catch (Exception e) {
+				System.out.println("Terapia inesistente!!!");
+				break;
+			}
+			System.out.print("Inserisci la data della prenotazione");
+			LocalDate data = genData();
+			prenotazioneservice.salvaPrenotazione(new Prenotazione());
+			scan.nextLine();
+			break;
+		case 0:
+			System.out.print("Richiesta Chiusura dall'utente!");
+			System.exit(0);
+			break;
+		default:
+			System.out.print("Scelta non valida!!!");
+			break;
+		}
+		
+	}
 
 	public static LocalDate genData() {
 		System.out.print("Inserisci Giorno (DD):");

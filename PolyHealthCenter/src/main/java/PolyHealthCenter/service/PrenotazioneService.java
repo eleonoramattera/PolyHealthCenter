@@ -16,7 +16,9 @@ import PolyHealthCenter.exception.PrenotazioneException;
 public class PrenotazioneService {
 	@Autowired PrenotazioneDAORepository repo;
 	
-
+	public Prenotazione getPrenotazioneRandom() {
+		return repo.findByPrenotazioneRandom();
+	}
 	//JPA METHODS
 
 //getByID
