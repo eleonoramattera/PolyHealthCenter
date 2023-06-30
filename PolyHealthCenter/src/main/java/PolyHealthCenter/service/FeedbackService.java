@@ -2,7 +2,9 @@ package PolyHealthCenter.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import PolyHealthCenter.model.Feedback;
@@ -15,7 +17,15 @@ import jakarta.persistence.EntityNotFoundException;
 public class FeedbackService {
 	
 	@Autowired FeedbackDAORepository repo;
+	@Autowired @Qualifier("FakeFeedbackBean") ObjectProvider<Feedback> feedbackFakeProvider;
+
+	public Feedback createFakeFeedback() {
+		return repo.save(feedbackFakeProvider.getObject());
+	}
 	
+	public Feedback getFeedbackRandom() {
+		return repo.findByFeedbackRandom();
+	}
 	//CRUD METHODS
 	
 	// getAll
@@ -34,15 +44,14 @@ public class FeedbackService {
 	//create
 	public Feedback createFeedback(Feedback feedback) {
     // Gestione di un errore | email già presente
-	  if(repo.existsById(feedback.getId()) || repo.existsByEmail(feedback.getEmail())) {
-		throw new EntityNotFoundException(" feedback già presente");
+	  if(repo.existsByUtente(feedback.getUtente()) ) {
+		throw new EntityNotFoundException(" feedback di " + feedback.getUtente() + "già presente");
 		  }
+	  System.out.println("Feedback con id " + feedback.getId() +" inserito nel DB");
 	  return repo.save(feedback);
 	}
+
 	
-//	public Testimonianza getTestimonianzaRandom() {
-//		return repo.findByTestimonianzaRandom();
-//	}
 	
 	//update
 	public Feedback updateFeedback(Feedback feedback, Long id) {
@@ -63,12 +72,6 @@ public class FeedbackService {
 		return "Feedback cancellato!";
 		}
 	
-	//CUSTOM METHODS
 
-	public Feedback getByEmail(String email) {
-		return repo.findByEmail(email);
-	}
-	
-	
 
 }

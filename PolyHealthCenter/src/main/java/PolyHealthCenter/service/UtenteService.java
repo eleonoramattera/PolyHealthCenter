@@ -2,7 +2,9 @@ package PolyHealthCenter.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import PolyHealthCenter.model.Utente;
@@ -14,7 +16,15 @@ import jakarta.persistence.EntityNotFoundException;
 public class UtenteService {
 	
 	@Autowired UtenteDAORepository repo;
+	@Autowired @Qualifier("FakeUtenteBean") ObjectProvider<Utente> utenteFakeProvider;
 	
+	public Utente createFakeUtente() {
+		return repo.save( utenteFakeProvider.getObject());
+	}
+	
+	public Utente getUtenteRandom() {
+		return repo.findByUtenteRandom();
+	}
 	//JPA METHODS
 	
 	// getAll
@@ -36,8 +46,12 @@ public class UtenteService {
 	 if(repo.existsByEmail(utente.getEmail()) || repo.existsByNumeroTelefono(utente.getNumeroTelefono())) {
 		throw new EntityNotFoundException("email/numero di telefono già presente");
 	    }
+	 
+	 System.out.println("Utente " + utente.getNome() + " " + utente.getCognome() + " inserito nel DB");
 		return repo.save(utente);
 	}
+	
+	
 	
 	//update
 	public Utente updateUtente(Utente utente, Long id) {
@@ -68,4 +82,11 @@ public class UtenteService {
 		return repo.findByNumeroTelefono(numeroTelefono);
 	}
 
+	
+	
+	
+	
+
+
+	
 }

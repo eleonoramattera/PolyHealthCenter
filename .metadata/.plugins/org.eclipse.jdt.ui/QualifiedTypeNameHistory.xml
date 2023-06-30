@@ -1,2 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="jakarta.persistence.FetchType"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnoreProperties"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.JoinTable"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.repository.FeedbackDAORepository"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.ObjectProvider"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.model.Feedback"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.service.PrenotazioneService"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.service.FeedbackService"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.model.Prenotazione"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
+    <fullyQualifiedTypeName name="lombok.Builder"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.repository.TerapiaDAORepository"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.service.TerapiaService"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.model.Terapia"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.service.UtenteService"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Scope"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.model.Utente"/>
+    <fullyQualifiedTypeName name="com.github.javafaker.Faker"/>
+    <fullyQualifiedTypeName name="java.util.Locale"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.ApplicationRunner"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
+</qualifiedTypeNameHistroy>

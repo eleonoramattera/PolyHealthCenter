@@ -23,19 +23,14 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-
 @Entity
 @Table(name="feedback")
 public class Feedback {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(nullable = false)
-	private String nome;
-	@Column(nullable = false)
-	private String cognome;
-	@Column(nullable = false)
-	private String email;
+	@Column(nullable = false, columnDefinition = "TEXT")
+	private String titolo;
 	@Column(nullable = false, columnDefinition = "TEXT")
 	private String testo;
 	@Column(nullable = false)
@@ -47,7 +42,9 @@ public class Feedback {
 	private Utente utente;
 
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "id_terapia")
+	private Terapia terapia;
 	
 
 }

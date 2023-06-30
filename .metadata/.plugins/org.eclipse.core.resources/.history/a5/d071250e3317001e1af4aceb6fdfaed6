@@ -1,0 +1,31 @@
+package PolyHealthCenter.configuration;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import PolyHealthCenter.model.Utente;
+
+@Component
+public class UtenteConfiguration {
+	
+	@Bean("fakeUtente")
+	@Scope("prototype")
+	public Utente fakeUtenteRandom() {}
+	
+	@Bean("FakeUTEan")
+	@Scope("prototype")
+	public User fakeUser() {
+		//uso javafaker)
+	Faker fake = Faker.instance(new Locale("it-IT"));
+	User userFake = new User();
+	userFake.setName(fake.name().firstName());
+   userFake.setLastname(fake.name().lastName());
+   userFake.setCity(fake.address().cityName());
+	userFake.setAge(fake.number().numberBetween(16, 60));
+	userFake.setEmail(userFake.getName() + "." + userFake.getLastname() + "@example.com");
+		
+		return userFake;
+	}
+
+}

@@ -1,0 +1,51 @@
+package PolyHealthCenter.configuration;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import com.github.javafaker.Faker;
+
+import PolyHealthCenter.model.Feedback;
+import PolyHealthCenter.model.Prenotazione;
+import PolyHealthCenter.model.Utente;
+import PolyHealthCenter.service.FeedbackService;
+import PolyHealthCenter.service.PrenotazioneService;
+import PolyHealthCenter.service.UtenteService;
+
+@Component
+public class UtenteConfiguration {
+
+	@Autowired UtenteService uservice;
+	@Autowired PrenotazioneService prenotazioneService;
+	@Autowired FeedbackService feedbackService;
+	
+	@Bean("UtenteFake")
+	@Scope("prototype")
+	public Utente randomUtente() {
+		Faker fake = new Faker();
+		List<Prenotazione> prenotazioni = new ArrayList<>();
+		prenotazioni.add(prenotazioneService.getPrenotazioneRandom());
+		
+		List<Feedback> feedback =new ArrayList<>();
+		feedback.add(feedbackService.getFeedbackRandom());
+		return Utente.builder()
+				.nome(fake.name().firstName())
+				.cognome(fake.name().lastName())
+				.email(fake.internet().emailAddress())
+				.pass
+				.age(fake.number().numberBetween(18, 99))
+				.prenotazioni(prenotazioni)
+				.feedback(feedback)
+				.build();
+	}
+		
+		
+	}
+	
+

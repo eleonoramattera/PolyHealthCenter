@@ -2,7 +2,9 @@ package PolyHealthCenter.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import PolyHealthCenter.model.Terapia;
@@ -15,7 +17,15 @@ import jakarta.persistence.EntityNotFoundException;
 @Service
 public class TerapiaService {
 	@Autowired TerapiaDAORepository repo;
+@Autowired @Qualifier("FakeTerapiaBean") ObjectProvider<Terapia> terapiaFakeProvider;
 	
+	public Terapia createFakeUtente() {
+		return repo.save( terapiaFakeProvider.getObject());
+	}
+	
+	public Terapia getTerapiaRandom() {
+		return repo.findByTerapiaRandom();
+	}
 
 	//JPA METHODS
 	// getAll
@@ -31,16 +41,18 @@ public class TerapiaService {
 		}
 		return repo.findById(id).get();
 		}
+	
 		
 	//create
 	public Terapia createTerapia(Terapia terapia) {
-	// Gestione di un errore | id già presente
-	 if(repo.existsById(terapia.getId())) {
-		throw new EntityNotFoundException("ID già presente");
+	// Gestione di un errore |  nome presente
+	 if(repo.existsByNome(terapia.getNome())) {
+		throw new EntityNotFoundException("Nome già presente");
 		 }
 		return repo.save(terapia);
 		}
 		
+	
 	//update
 	public Terapia updateTerapia(Terapia terapia, Long id) {
 	  if (repo.existsById(id)) {
@@ -59,5 +71,7 @@ public class TerapiaService {
 		repo.deleteById(id);
 		return "Terapia cancellata!";
 		}
+
+
 		
 }
