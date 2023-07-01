@@ -104,7 +104,40 @@ public void menuPrincipale() {
 		prenotazioneservice.salvaPrenotazione(new Prenotazione(utente, terapia, data, sede));
 		scan.nextLine();
 		break;
+		
+		
 	case 3:
+		//ALTERNATIVA
+//		System.out.print("Inserisci l'ID della prenotazione che hai effettuato");
+//		Long prenotazioneid = scan.nextLong();
+//		Prenotazione prenotazione = null;
+//		String titolo = null;
+//		String testo = null;
+//		Integer rating = null;
+//		
+//		try {
+//			prenotazione = prenotazioneservice.getById(prenotazioneid);
+//			LocalDate data1 = prenotazione.getDataPrenotazione();
+//			LocalDate data2 = LocalDate.now();
+//			Terapia t = prenotazione.getTerapia();
+//			 if (data1.isAfter(data2)) {
+//		            System.out.println("Non hai ancora effettuato la visita quindi non puoi lasciare feedback");
+//		        } else {
+//		       	System.out.println("Inserisci titolo");
+//		        titolo =scan.nextLine();
+//		       	System.out.println("Inserisci testo");
+//		        testo =	scan.nextLine();
+//		       	System.out.println("Inserisci rating");
+//		       	 rating = scan.nextInt();	
+//		       	 
+//		       	 feedbackservice.createFeedback(new Feedback(titolo, testo, rating, utente, t));
+//		       	 scan.nextLine();
+//		        }
+//		} catch (Exception e) {
+//			System.out.println("Prenotazione inesistente!!!");
+//			break;
+//		}
+		
 		System.out.print("Inserisci l'ID della terapia alla quale vuoi lasciare feedback");
 		terapiaid = scan.nextLong();
 		terapia = null;

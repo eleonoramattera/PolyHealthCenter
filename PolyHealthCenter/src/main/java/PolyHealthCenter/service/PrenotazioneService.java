@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import PolyHealthCenter.repository.PrenotazioneDAORepository;
+import jakarta.persistence.EntityNotFoundException;
 import PolyHealthCenter.model.Prenotazione;
 import PolyHealthCenter.model.Terapia;
 import PolyHealthCenter.model.Utente;
@@ -22,9 +23,13 @@ public class PrenotazioneService {
 	//JPA METHODS
 
 //getByID
-public Optional<Prenotazione> getById(Long id) {
-	return repo.findById(id);
+public Prenotazione getById(Long id) {
+	if (!repo.existsById(id)) {
+		throw new EntityNotFoundException("Prenotazione non esiste!");
+	}
+	return repo.findById(id).get();
 }
+
 
 //getAll
 public List<Prenotazione> getAll() {
