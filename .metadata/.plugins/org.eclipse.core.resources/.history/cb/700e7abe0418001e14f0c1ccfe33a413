@@ -1,0 +1,48 @@
+package PolyHealthCenter.runner;
+
+import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
+
+import PolyHealthCenter.model.Feedback;
+import PolyHealthCenter.model.Utente;
+import PolyHealthCenter.repository.SedeDAORepository;
+import PolyHealthCenter.service.FeedbackService;
+import PolyHealthCenter.service.PrenotazioneService;
+import PolyHealthCenter.service.SedeService;
+import PolyHealthCenter.service.TerapiaService;
+import PolyHealthCenter.service.UtenteService;
+
+@Component
+public class PolyHealthRunner implements ApplicationRunner {
+	@Autowired UtenteService utenteservice;
+	@Autowired SedeService sedeservice;
+	@Autowired TerapiaService terapiaservice;
+	@Autowired PrenotazioneService prenotazioneservice;
+	@Autowired SedeDAORepository repo;
+    
+	public static Scanner scan = new Scanner(System.in);
+	
+	Utente utente = null;
+	
+	
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		System.out.println("RUN");
+		setSedi();
+		utenteservice.createFakeUtente();
+		terapiaservice.createFakeTerapia();
+	
+	}
+	
+	
+		
+		
+		
+	}
+	
+
+}
