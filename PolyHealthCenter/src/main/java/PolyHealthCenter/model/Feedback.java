@@ -45,6 +45,16 @@ public class Feedback {
 	@ManyToOne
 	@JoinColumn(name = "id_terapia")
 	private Terapia terapia;
+
+
+	public Feedback(String titolo, String testo, Integer rating, Utente utente, Terapia terapia) {
+		super();
+		this.titolo = titolo;
+		this.testo = testo;
+		this.rating = rating;
+		this.utente = utente;
+		this.terapia = terapia;
+	}
 	
 
 }

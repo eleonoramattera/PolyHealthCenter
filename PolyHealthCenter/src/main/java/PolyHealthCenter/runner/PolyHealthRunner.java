@@ -33,6 +33,7 @@ public class PolyHealthRunner implements ApplicationRunner {
 	@Autowired TerapiaService terapiaservice;
 	@Autowired PrenotazioneService prenotazioneservice;
 	@Autowired SedeDAORepository repo;
+	@Autowired FeedbackService feedbackservice;
     
 	public static Scanner scan = new Scanner(System.in);
 	
@@ -71,6 +72,7 @@ public void menuPrincipale() {
 //	System.out.println("2 - CERCA TERAPIA PER REGIONE");
 //	System.out.println("3 - CERCA POSTAZIONE PER TIPOLOGIA");
 	System.out.println("2 - INSERISCI NUOVA PRENOTAZIONE");
+	System.out.println("3 - INSERISCI NUOVA FEEDBACK");
 	System.out.println("0 - ESCI DALL'APPLICAZIONE");
 	int scelta = scan.nextInt();
 	switch (scelta) {
@@ -101,6 +103,43 @@ public void menuPrincipale() {
 		System.out.println("Data inserita!!!");
 		prenotazioneservice.salvaPrenotazione(new Prenotazione(utente, terapia, data, sede));
 		scan.nextLine();
+		break;
+	case 3:
+		System.out.print("Inserisci l'ID della terapia alla quale vuoi lasciare feedback");
+		terapiaid = scan.nextLong();
+		terapia = null;
+		try {
+			terapia = terapiaservice.getById(terapiaid);
+			
+		} catch (Exception e) {
+			System.out.println("Terapia inesistente!!!");
+			break;
+		}
+		System.out.print("Inserisci la data della prenotazione");
+		String titolo = null;
+		String testo = null;
+		Integer rating = null;
+		
+		LocalDate data1 = genData();
+		LocalDate data2 = LocalDate.now();
+		try {
+		 if (data1.isAfter(data2)) {
+	            System.out.println("Non hai ancora effettuato la visita quindi non puoi lasciare feedback");
+	        } else {
+	       	System.out.println("Inserisci titolo");
+	        titolo =scan.nextLine();
+	       	System.out.println("Inserisci testo");
+	        testo =	scan.nextLine();
+	       	System.out.println("Inserisci rating");
+	       	 rating = scan.nextInt();	
+	       	 
+	       	 feedbackservice.createFeedback(new Feedback(titolo, testo, rating, utente, terapia));
+	       	 scan.nextLine();
+	        }
+		} catch (Exception e) {
+			System.out.println("ERRORE");
+			break;
+		}
 		break;
 	case 0:
 		System.out.print("Richiesta Chiusura dall'utente!");
