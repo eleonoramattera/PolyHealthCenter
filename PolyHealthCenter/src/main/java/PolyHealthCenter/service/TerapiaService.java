@@ -19,8 +19,9 @@ public class TerapiaService {
 	@Autowired TerapiaDAORepository repo;
 @Autowired @Qualifier("FakeTerapiaBean") ObjectProvider<Terapia> terapiaFakeProvider;
 	
-	public Terapia createFakeUtente() {
-		return repo.save( terapiaFakeProvider.getObject());
+	public void createFakeTerapia() {
+		Terapia t = terapiaFakeProvider.getObject();
+		createTerapia(t);
 	}
 	
 	public Terapia getTerapiaRandom() {
@@ -49,6 +50,7 @@ public class TerapiaService {
 	 if(repo.existsByNome(terapia.getNome())) {
 		throw new EntityNotFoundException("Nome già presente");
 		 }
+	 System.out.println("Terapia " + terapia.getNome() +  " inserita nel DB");
 		return repo.save(terapia);
 		}
 		

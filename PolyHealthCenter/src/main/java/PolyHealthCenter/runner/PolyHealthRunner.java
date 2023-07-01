@@ -21,9 +21,9 @@ public class PolyHealthRunner implements ApplicationRunner {
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("RUNNIAMOOOO");
+	//	System.out.println("RUNNIAMOOOO");
 		
-		starterDB();
+		//starterDB();
 	}
 	
 	private void starterDB() {

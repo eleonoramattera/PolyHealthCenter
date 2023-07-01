@@ -55,11 +55,12 @@ public class Prenotazione {
 //			  inverseJoinColumns = @JoinColumn(name = "id_utente"))
 //	private List<Utente> utente;
 //	
-	public Prenotazione(Utente utente, Terapia terapia, LocalDate dataPrenotazione) {
+	public Prenotazione(Utente utente, Terapia terapia, LocalDate dataPrenotazione, Sede sede) {
 		super();
 		this.utente = utente;
 		this.terapia = terapia;
 		this.dataPrenotazione = dataPrenotazione;
+		this.sede = sede;
 	}
 
 	

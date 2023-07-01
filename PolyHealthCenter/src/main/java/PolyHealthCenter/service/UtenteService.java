@@ -18,8 +18,9 @@ public class UtenteService {
 	@Autowired UtenteDAORepository repo;
 	@Autowired @Qualifier("FakeUtenteBean") ObjectProvider<Utente> utenteFakeProvider;
 	
-	public Utente createFakeUtente() {
-		return repo.save( utenteFakeProvider.getObject());
+	public void createFakeUtente() {
+		Utente u = utenteFakeProvider.getObject();
+		createUtente(u);
 	}
 	
 	public Utente getUtenteRandom() {
