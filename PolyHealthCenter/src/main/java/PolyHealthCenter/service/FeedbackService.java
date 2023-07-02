@@ -44,8 +44,8 @@ public class FeedbackService {
 	//create
 	public Feedback createFeedback(Feedback feedback) {
     // Gestione di un errore | email già presente
-	  if(repo.existsByUtente(feedback.getUtente()) ) {
-		throw new EntityNotFoundException(" feedback di " + feedback.getUtente() + "già presente");
+	  if(repo.existsByUtente(feedback.getUtente().getId()) ) {
+		throw new EntityNotFoundException(" feedback di " + feedback.getUtente() + " con id " + feedback.getUtente().getId() +  "già presente");
 		  }
 	  System.out.println("Feedback con id " + feedback.getId() +" inserito nel DB");
 	  return repo.save(feedback);
