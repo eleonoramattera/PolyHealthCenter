@@ -138,41 +138,41 @@ public void menuPrincipale() {
 //			break;
 //		}
 		
-		System.out.print("Inserisci l'ID della terapia alla quale vuoi lasciare feedback");
-		terapiaid = scan.nextLong();
-		terapia = null;
-		try {
-			terapia = terapiaservice.getById(terapiaid);
-			
-		} catch (Exception e) {
-			System.out.println("Terapia inesistente!!!");
-			break;
-		}
-		System.out.print("Inserisci la data della prenotazione");
-		String titolo = null;
-		String testo = null;
-		Integer rating = null;
-		
-		LocalDate data1 = genData();
-		LocalDate data2 = LocalDate.now();
-		try {
-		 if (data1.isAfter(data2)) {
-	            System.out.println("Non hai ancora effettuato la visita quindi non puoi lasciare feedback");
-	        } else {
-	       	System.out.println("Inserisci titolo");
-	        titolo =scan.nextLine();
-	       	System.out.println("Inserisci testo");
-	        testo =	scan.nextLine();
-	       	System.out.println("Inserisci rating");
-	       	 rating = scan.nextInt();	
-	       	 
-	       	 feedbackservice.createFeedback(new Feedback(titolo, testo, rating, utente, terapia));
-	       	 scan.nextLine();
-	        }
-		} catch (Exception e) {
-			System.out.println("ERRORE");
-			break;
-		}
+//		System.out.print("Inserisci l'ID della terapia alla quale vuoi lasciare feedback");
+//		terapiaid = scan.nextLong();
+//		terapia = null;
+//		try {
+//			terapia = terapiaservice.getById(terapiaid);
+//			
+//		} catch (Exception e) {
+//			System.out.println("Terapia inesistente!!!");
+//			break;
+//		}
+//		System.out.print("Inserisci la data della prenotazione");
+//		String titolo = null;
+//		String testo = null;
+//		Integer rating = null;
+//		
+//		LocalDate data1 = genData();
+//		LocalDate data2 = LocalDate.now();
+//		try {
+//		 if (data1.isAfter(data2)) {
+//	            System.out.println("Non hai ancora effettuato la visita quindi non puoi lasciare feedback");
+//	        } else {
+//	       	System.out.println("Inserisci titolo");
+//	        titolo =scan.nextLine();
+//	       	System.out.println("Inserisci testo");
+//	        testo =	scan.nextLine();
+//	       	System.out.println("Inserisci rating");
+//	       	 rating = scan.nextInt();	
+//	       	 
+//	       	 feedbackservice.createFeedback(new Feedback(titolo, testo, rating, utente, terapia));
+//	       	 scan.nextLine();
+//	        }
+//		} catch (Exception e) {
+//			System.out.println("ERRORE");
+//			break;
+//		}
 		break;
 	case 0:
 		System.out.print("Richiesta Chiusura dall'utente!");
