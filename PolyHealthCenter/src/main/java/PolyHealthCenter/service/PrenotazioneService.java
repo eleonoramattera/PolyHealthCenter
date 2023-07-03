@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import PolyHealthCenter.repository.PrenotazioneDAORepository;
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import PolyHealthCenter.model.Prenotazione;
 import PolyHealthCenter.model.Terapia;
@@ -42,7 +43,7 @@ public List<Prenotazione> getAll() {
 //}
 
 //update
-public Prenotazione updatePrenotazione(Long id, Prenotazione prenotazione) {
+public Prenotazione updatePrenotazione( Prenotazione prenotazione, Long id) {
 	Optional<Prenotazione> prenotazioneResult = repo.findById(id);
 
 	if (prenotazioneResult.isPresent()) {
@@ -60,12 +61,17 @@ public Prenotazione updatePrenotazione(Long id, Prenotazione prenotazione) {
 }
 
 //delete
-public void deletePrenotazione(Long id) {
+
+public String deletePrenotazione(Long id) {
+	if(!repo.existsById(id)) {
+		throw new EntityExistsException("La Prenotazione con id " + id + " non è presente del database!");
+	}
 	repo.deleteById(id);
+	return "Prenotazione cancellata!!!";
 }
 
 //create
-public void salvaPrenotazione(Prenotazione p) {
+public Prenotazione salvaPrenotazione(Prenotazione p) {
 	List<Prenotazione> listaperUtente =  getByUtenteAndDataPrenotazione(p.getUtente(), p.getDataPrenotazione());
 	List<Prenotazione> listperTerapia = getByTerapiaAndDataPrenotazione(p.getTerapia(), p.getDataPrenotazione());
 	if (listaperUtente.size() > 0) {
@@ -73,10 +79,12 @@ public void salvaPrenotazione(Prenotazione p) {
 	} else if (listperTerapia.size() > 0 ) {
 		 System.out.println("ATTENZIONE. LA TERAPIA E' GIA OCCUPATA NELLA DATA RICHIESTA");			
 	} else {
+		System.out.println("Prenotazione aggiunta al DB!!!");
 	repo.save(p);
-	 System.out.println("Prenotazione aggiunta al DB!!!");
 	}
+	return p;
 }
+
 
 
 // CUSTOM METHODS
