@@ -10,7 +10,7 @@ import PolyHealthCenter.model.Utente;
 @Repository
 public interface FeedbackDAORepository  extends JpaRepository<Feedback, Long>{
 
-	public boolean existsByUtente(Long id);
+	public boolean existsByUtente(Utente utente);
 	Feedback findByUtente(Utente utente);
 	
 

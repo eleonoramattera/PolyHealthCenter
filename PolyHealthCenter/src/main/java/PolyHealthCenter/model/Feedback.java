@@ -36,7 +36,7 @@ public class Feedback {
 	@Column(nullable = false)
 	private Integer rating;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id_utente")
 	private Utente utente;
