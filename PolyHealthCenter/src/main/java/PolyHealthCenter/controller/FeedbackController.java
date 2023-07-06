@@ -2,6 +2,8 @@ package PolyHealthCenter.controller;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,18 +41,21 @@ public class FeedbackController {
 	}
 
 	@PostMapping
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> createFeedback(@RequestBody Feedback feedback) {
 		return ResponseEntity.ok(service.createFeedback(feedback));
 
 	}
 	
 	@PutMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> updateFeedback(@RequestBody Feedback feedback, @PathVariable Long id) {
 		return ResponseEntity.ok(service.updateFeedback(feedback, id));
 
 	}
 	
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<String> deleteFeedback(@PathVariable Long id) {
 		return ResponseEntity.ok(service.removeFeedback(id));
 

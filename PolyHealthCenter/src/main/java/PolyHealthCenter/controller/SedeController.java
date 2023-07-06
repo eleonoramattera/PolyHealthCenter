@@ -19,7 +19,7 @@ import PolyHealthCenter.model.Sede;
 import PolyHealthCenter.service.SedeService;
 
 @RestController
-@RequestMapping("/api/comuni")
+@RequestMapping("/api/sedi")
 public class SedeController {
 	
     @Autowired SedeService service;

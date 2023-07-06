@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,18 +39,21 @@ public class TerapiaController {
 
 
 	@PostMapping
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> createTerapia(@RequestBody Terapia terapia) {
 		return ResponseEntity.ok(service.createTerapia(terapia));
 
 	}
 	
 	@PutMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> updateTerapia(@RequestBody Terapia terapia, @PathVariable Long id) {
 		return ResponseEntity.ok(service.updateTerapia(terapia, id));
 
 	}
 	
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<String> deleteTerapia(@PathVariable Long id) {
 		return ResponseEntity.ok(service.removeTerapia(id));
 

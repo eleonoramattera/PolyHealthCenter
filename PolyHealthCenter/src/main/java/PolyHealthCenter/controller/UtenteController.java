@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,18 +39,21 @@ public class UtenteController {
 
 
 	@PostMapping
+	@PreAuthorize("hasRole('USER','ADMIN')")
 	public ResponseEntity<?> createUtente(@RequestBody Utente utente) {
 		return ResponseEntity.ok(service.createUtente(utente));
 
 	}
 	
 	@PutMapping("/{id}")
+	@PreAuthorize("hasRole('USER','ADMIN')")
 	public ResponseEntity<?> updateUtente(@RequestBody Utente utente, @PathVariable Long id) {
 		return ResponseEntity.ok(service.updateUtente(utente, id));
 
 	}
 	
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('USER','ADMIN')")
 	public ResponseEntity<String> deleteUtente(@PathVariable Long id) {
 		return ResponseEntity.ok(service.removeUtente(id));
 
