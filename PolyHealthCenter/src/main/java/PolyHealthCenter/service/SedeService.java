@@ -32,7 +32,7 @@ public class SedeService {
 	
 	//create
 		public Sede createSede(Sede sede) {
-	    // Gestione di un errore | email già presente
+	    // Gestione di un errore | comune già presente
 		  if(repo.existsByComune(sede.getComune()) ) {
 			throw new EntityNotFoundException(" la sede nella città di " + sede.getComune() +  " è già presente");
 			  }
