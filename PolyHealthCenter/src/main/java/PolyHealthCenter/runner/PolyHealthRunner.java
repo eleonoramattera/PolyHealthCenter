@@ -70,7 +70,6 @@ public void menuPrincipale() {
 	System.out.println("Ciao " + utente.getNome() + utente.getCognome() + "! Cosa vuoi fare?");
 	System.out.println("1 - ELENCO PRENOTAZIONI A TUO NOME");
 //	System.out.println("2 - CERCA TERAPIA PER REGIONE");
-//	System.out.println("3 - CERCA POSTAZIONE PER TIPOLOGIA");
 	System.out.println("2 - INSERISCI NUOVA PRENOTAZIONE");
 	System.out.println("3 - INSERISCI NUOVA FEEDBACK");
 	System.out.println("0 - ESCI DALL'APPLICAZIONE");
