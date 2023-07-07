@@ -15,6 +15,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class RegisterDto {
     private String name;
+    private String lastname;
     private String username;
     private String email;
     private String password;
@@ -24,7 +25,8 @@ public class RegisterDto {
 
 // Il client dovrà inviare un oggetto JSON nel body con questa forma
 /*{
-    "name": "Francesca Neri",
+    "name": "Francesca",
+    "lastaname" :"Neri",
     "username": "francescaneri",
     "email": "f.neri@example.com",
     "password": "qwerty",
