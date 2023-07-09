@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import PolyHealthCenter.model.Sede;
 import PolyHealthCenter.service.SedeService;
 
+@CrossOrigin(origins =  "*", maxAge = 360000)
 @RestController
 @RequestMapping("/api/sedi")
 public class SedeController {

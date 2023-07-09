@@ -45,7 +45,6 @@
     <fullyQualifiedTypeName name="PolyHealthCenter.security.exception.MyAPIException"/>
     <fullyQualifiedTypeName name="PolyHealthCenter.security.security.JwtAuthenticationEntryPoint"/>
     <fullyQualifiedTypeName name="PolyHealthCenter.security.security.JwtAuthenticationFilter"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="org.springframework.security.access.prepost.PreAuthorize"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
@@ -58,4 +57,5 @@
     <fullyQualifiedTypeName name="PolyHealthCenter.model.Prenotazione"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="jakarta.persistence.EntityExistsException"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
 </qualifiedTypeNameHistroy>
