@@ -32,15 +32,17 @@ public class SedeRunner implements ApplicationRunner {
 	public void setSedi() throws IOException, CsvValidationException {
 
 		try (CSVReader reader = new CSVReader(new FileReader(
-				"C:\\Users\\Micro\\Desktop\\sedi.csv"))) {
+				"C:\\Users\\Micro\\Desktop\\sedii.csv"))) {
 			String[] lineInArray;
 			while ((lineInArray = reader.readNext()) != null) {
 				String[] parts = lineInArray[0].split(";");
 				String part1 = parts[0];
 				String part2 = parts[1];
+				String part3= parts[2];
+				String part4 =parts[3];
 			
 
-				Sede s = new Sede(part1, part2);
+				Sede s = new Sede(part1, part2, part3, part4);
 				repo.save(s);
 			}
 		}

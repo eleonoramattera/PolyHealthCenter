@@ -31,12 +31,21 @@ public class Sede {
 	@Column(nullable = false)
 	@CsvBindByPosition(position = 1)
 	private String comune;
-
 	
-	public Sede(String regione, String comune) {
+	@Column(nullable = false)
+	@CsvBindByPosition(position = 2)
+	private String latitudine ;
+	
+	@Column(nullable = false)
+	@CsvBindByPosition(position = 3)
+	private String longitudine;
+	
+	public Sede(String regione, String comune, String latitudine, String longitudine) {
 		super();
 		this.regione = regione;
 		this.comune = comune;
+		this.latitudine = latitudine;
+		this.longitudine = longitudine;
 	}
 
 
