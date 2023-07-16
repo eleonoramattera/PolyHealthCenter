@@ -1,0 +1,92 @@
+package PolyHealthCenter.runner;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import com.opencsv.CSVReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
+
+import com.opencsv.CSVReader;
+
+import PolyHealthCenter.model.Sede;
+import PolyHealthCenter.repository.SedeDAORepository;
+import com.opencsv.exceptions.CsvValidationException;
+
+@Component
+public class SedeRunner implements ApplicationRunner {
+	@Autowired SedeDAORepository repo;
+
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		System.out.println("sedi runner..");
+		
+		if (repo.findAll().isEmpty()) {
+
+			//setSedi();
+	esempio();
+	}
+	}
+	
+//	public void setSedi() throws IOException, CsvValidationException {
+//
+//		try (CSVReader reader = new CSVReader(new FileReader(
+//				"C:\\Users\\Micro\\Desktop\\csvjson.csv"))) {
+//			String[] lineInArray;
+//			while ((lineInArray = reader.readNext()) != null) {
+//				String[] parts = lineInArray[0].split(";");
+//				String part1 = parts[0];
+//				String part2 = parts[1];
+//				String part3= parts[2];
+//				
+//			
+//
+//				Sede s = new Sede(part1, part2, part3);
+//				repo.save(s);
+//			}
+//		}
+//	}
+
+	
+	
+
+	    public void esempio () throws CsvValidationException {
+	        String csvFile = "C:\\Users\\Micro\\Desktop\\csvjson.csv"; // Sostituisci con il percorso del tuo file CSV
+	        List<Sede> sedi = new ArrayList<>();
+
+	        try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
+	            String[] header = reader.readNext(); // Leggi la riga dell'intestazione (header)
+	            String[] line;
+	            while ((line = reader.readNext()) != null) {
+	                if (line.length >= 3) {
+	          
+	                    Sede s = new Sede();
+	                    s.setGeocode(line[0].split(","));
+	                    s.setComune(line[1]);
+	                    s.setRegione(line[2]);
+	                    sedi.add(s);
+	                   
+	                } else {
+	                    System.out.println("Riga non valida " + Arrays.toString(line));
+	                }
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+
+	      
+
+	    }
+	
+
+	
+	 
+
+	
+	
+}

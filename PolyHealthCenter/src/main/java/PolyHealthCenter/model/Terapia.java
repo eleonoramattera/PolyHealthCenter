@@ -32,6 +32,7 @@ public class Terapia {
 	private String descrizione;
 	@Column(nullable = false)
 	private Double prezzo;
+
 	
 //	@JsonIgnore
 //	@OneToMany (mappedBy = "terapia")

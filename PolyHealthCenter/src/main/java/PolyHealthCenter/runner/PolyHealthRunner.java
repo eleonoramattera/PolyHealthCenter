@@ -196,22 +196,22 @@ public static LocalDate genData() {
 
 
 
-public void setSedi() throws IOException, CsvValidationException {
-
-	try (CSVReader reader = new CSVReader(new FileReader(
-			"C:\\Users\\Micro\\Desktop\\sedii.csv"))) {
-		String[] lineInArray;
-		while ((lineInArray = reader.readNext()) != null) {
-			String[] parts = lineInArray[0].split(";");
-			String part1 = parts[0];
-			String part2 = parts[1];
-		
-
-			Sede s = new Sede(part1, part2);
-			repo.save(s);
-		}
-	}
-}
+//public void setSedi() throws IOException, CsvValidationException {
+//
+//	try (CSVReader reader = new CSVReader(new FileReader(
+//			"C:\\Users\\Micro\\Desktop\\sedii.csv"))) {
+//		String[] lineInArray;
+//		while ((lineInArray = reader.readNext()) != null) {
+//			String[] parts = lineInArray[0].split(";");
+//			String part1 = parts[0];
+//			String part2 = parts[1];
+//		
+//
+//			Sede s = new Sede(part1, part2);
+//			repo.save(s);
+//		}
+//	}
+//}
 	
 
 }

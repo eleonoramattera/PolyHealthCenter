@@ -26,26 +26,32 @@ public class Sede {
 	
 	@Column(nullable = false)
 	@CsvBindByPosition(position = 0)
-	private String regione;
+	private Long lat;
 	
 	@Column(nullable = false)
 	@CsvBindByPosition(position = 1)
-	private String comune;
+	private Long lon;
+
 	
 	@Column(nullable = false)
 	@CsvBindByPosition(position = 2)
-	private String latitudine ;
+	private String comune;
 	
 	@Column(nullable = false)
 	@CsvBindByPosition(position = 3)
-	private String longitudine;
+	private String regione ;
 	
-	public Sede(String regione, String comune, String latitudine, String longitudine) {
+	
+
+
+
+
+	public Sede(Long lat, Long lon, String comune, String regione) {
 		super();
-		this.regione = regione;
+		this.lat = lat;
+		this.lon = lon;
 		this.comune = comune;
-		this.latitudine = latitudine;
-		this.longitudine = longitudine;
+		this.regione = regione;
 	}
 
 

@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.opencsv.exceptions.CsvValidationException;
+
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 
@@ -21,5 +23,7 @@ public class MyExcpetionHandler extends ResponseEntityExceptionHandler {
 	public ResponseEntity<String> manageEntityExistsException(EntityNotFoundException e) {
 		return new ResponseEntity<String>(e.getMessage() + " MyExcpetionHandler!!!", HttpStatus.NOT_FOUND);
 	}
+	
+
 	
 }

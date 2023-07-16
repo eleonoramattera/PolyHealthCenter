@@ -40,21 +40,21 @@ public class UtenteController {
 
 
 	@PostMapping
-	@PreAuthorize("hasRole('USER','ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<?> createUtente(@RequestBody Utente utente) {
 		return ResponseEntity.ok(service.createUtente(utente));
 
 	}
 	
 	@PutMapping("/{id}")
-	@PreAuthorize("hasRole('USER','ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<?> updateUtente(@RequestBody Utente utente, @PathVariable Long id) {
 		return ResponseEntity.ok(service.updateUtente(utente, id));
 
 	}
 	
 	@DeleteMapping("/{id}")
-	@PreAuthorize("hasRole('USER','ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<String> deleteUtente(@PathVariable Long id) {
 		return ResponseEntity.ok(service.removeUtente(id));
 
