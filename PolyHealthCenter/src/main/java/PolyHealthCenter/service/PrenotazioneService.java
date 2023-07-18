@@ -72,16 +72,18 @@ public String deletePrenotazione(Long id) {
 
 //create
 public Prenotazione salvaPrenotazione(Prenotazione p) {
-	List<Prenotazione> listaperUtente =  getByUtenteAndDataPrenotazione(p.getUtente(), p.getDataPrenotazione());
-	List<Prenotazione> listperTerapia = getByTerapiaAndDataPrenotazione(p.getTerapia(), p.getDataPrenotazione());
-	if (listaperUtente.size() > 0) {
-	 System.out.println("ATTENZIONE. ESISTE GIA UNA PRENOTAZIONE PER LA DATA RICHIESTA");
-	} else if (listperTerapia.size() > 0 ) {
-		 System.out.println("ATTENZIONE. LA TERAPIA E' GIA OCCUPATA NELLA DATA RICHIESTA");			
-	} else {
-		System.out.println("Prenotazione aggiunta al DB!!!");
+//	List<Prenotazione> listaperUtente =  getByUtenteAndDataPrenotazione(p.getUtente(), p.getDataPrenotazione());
+//	List<Prenotazione> listperTerapia = getByTerapiaAndDataPrenotazione(p.getTerapia(), p.getDataPrenotazione());
+//	if (listaperUtente.size() > 0) {
+//	 System.out.println("ATTENZIONE. ESISTE GIA UNA PRENOTAZIONE PER LA DATA RICHIESTA");
+//	} else if (listperTerapia.size() > 0 ) {
+//		 System.out.println("ATTENZIONE. LA TERAPIA E' GIA OCCUPATA NELLA DATA RICHIESTA");			
+//	} else {
+//		System.out.println("Prenotazione aggiunta al DB!!!");
+//	repo.save(p);
+//	}
+//	return p;
 	repo.save(p);
-	}
 	return p;
 }
 

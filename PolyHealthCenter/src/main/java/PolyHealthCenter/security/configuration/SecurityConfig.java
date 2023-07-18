@@ -23,7 +23,6 @@ import PolyHealthCenter.security.security.JwtAuthenticationEntryPoint;
 import PolyHealthCenter.security.security.JwtAuthenticationFilter;
 
 
-
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
@@ -58,6 +57,7 @@ public class SecurityConfig {
     	http.cors().and().csrf().disable()
         .authorizeHttpRequests((authorize) -> authorize
         		.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
+        		.requestMatchers(HttpMethod.POST, "/api/**").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
                 .anyRequest().authenticated())
         .exceptionHandling( exception -> exception

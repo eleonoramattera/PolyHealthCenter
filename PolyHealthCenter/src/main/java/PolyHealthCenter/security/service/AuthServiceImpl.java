@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+
 import PolyHealthCenter.security.entity.ERole;
 import PolyHealthCenter.security.entity.Role;
 import PolyHealthCenter.security.entity.User;
@@ -20,8 +21,6 @@ import PolyHealthCenter.security.payload.RegisterDto;
 import PolyHealthCenter.security.repository.RoleRepository;
 import PolyHealthCenter.security.repository.UserRepository;
 import PolyHealthCenter.security.security.JwtTokenProvider;
-
-
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -76,6 +75,7 @@ public class AuthServiceImpl implements AuthService {
 
         User user = new User();
         user.setName(registerDto.getName());
+        user.setLastname(registerDto.getLastname());
         user.setUsername(registerDto.getUsername());
         user.setEmail(registerDto.getEmail());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));

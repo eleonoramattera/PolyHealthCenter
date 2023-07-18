@@ -12,7 +12,6 @@
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.ObjectProvider"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="lombok.Builder"/>
     <fullyQualifiedTypeName name="PolyHealthCenter.repository.TerapiaDAORepository"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Scope"/>
@@ -31,18 +30,10 @@
     <fullyQualifiedTypeName name="PolyHealthCenter.service.TerapiaService"/>
     <fullyQualifiedTypeName name="com.epicode.project.security.security.JwtAuthenticationEntryPoint"/>
     <fullyQualifiedTypeName name="com.epicode.project.security.repository.RoleRepository"/>
-    <fullyQualifiedTypeName name="PolyHealthCenter.security.payload.ErrorDetails"/>
     <fullyQualifiedTypeName name="PolyHealthCenter.security.repository.UserRepository"/>
-    <fullyQualifiedTypeName name="PolyHealthCenter.security.repository.RoleRepository"/>
     <fullyQualifiedTypeName name="PolyHealthCenter.security.security.JwtTokenProvider"/>
     <fullyQualifiedTypeName name="PolyHealthCenter.security.entity.User"/>
-    <fullyQualifiedTypeName name="PolyHealthCenter.security.entity.Role"/>
-    <fullyQualifiedTypeName name="PolyHealthCenter.security.entity.ERole"/>
     <fullyQualifiedTypeName name="PolyHealthCenter.security.service.AuthService"/>
-    <fullyQualifiedTypeName name="PolyHealthCenter.security.payload.JWTAuthResponse"/>
-    <fullyQualifiedTypeName name="PolyHealthCenter.security.payload.LoginDto"/>
-    <fullyQualifiedTypeName name="PolyHealthCenter.security.payload.RegisterDto"/>
-    <fullyQualifiedTypeName name="PolyHealthCenter.security.exception.MyAPIException"/>
     <fullyQualifiedTypeName name="PolyHealthCenter.security.security.JwtAuthenticationEntryPoint"/>
     <fullyQualifiedTypeName name="PolyHealthCenter.security.security.JwtAuthenticationFilter"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
@@ -58,4 +49,14 @@
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="jakarta.persistence.EntityExistsException"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.security.controller.AuthController"/>
+    <fullyQualifiedTypeName name="lombok.Builder"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.security.repository.RoleRepository"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.security.exception.MyAPIException"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.security.entity.Role"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.security.entity.ERole"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.security.payload.ErrorDetails"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.security.payload.RegisterDto"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.security.payload.LoginDto"/>
+    <fullyQualifiedTypeName name="PolyHealthCenter.security.payload.JWTAuthResponse"/>
 </qualifiedTypeNameHistroy>

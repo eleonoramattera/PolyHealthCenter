@@ -25,8 +25,7 @@ public class RegisterDto {
 
 // Il client dovrà inviare un oggetto JSON nel body con questa forma
 /*{
-    "name": "Francesca",
-    "lastaname" :"Neri",
+    "name": "Francesca Neri",
     "username": "francescaneri",
     "email": "f.neri@example.com",
     "password": "qwerty",
