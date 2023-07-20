@@ -40,9 +40,10 @@ public class Utente {
 	@Column(nullable = false)
 	private String password;
 
-	@ManyToMany(mappedBy = "utente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JsonIgnoreProperties({"utente"})
-	private List<Prenotazione> prenotazioni;
+
+//	@ManyToMany(mappedBy = "utente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JsonIgnoreProperties({"utente"})
+//	private List<Prenotazione> prenotazioni;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "utente")

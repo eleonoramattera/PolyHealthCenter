@@ -29,9 +29,9 @@ public class UtenteConfiguration {
 		
 	Faker fake = Faker.instance(new Locale("it-IT"));
 	
-	List<Prenotazione> prenotazioni = new ArrayList<>();
-	prenotazioni.add(prenotazioneService.getPrenotazioneRandom());
-	
+//	List<Prenotazione> prenotazioni = new ArrayList<>();
+//	prenotazioni.add(prenotazioneService.getPrenotazioneRandom());
+//	
 	List<Feedback> feedback = new ArrayList<>();
 	feedback.add(feedbackService.getFeedbackRandom());
 	
@@ -41,7 +41,7 @@ public class UtenteConfiguration {
 	utenteFake.setEmail(	utenteFake.getNome() + "." + 	utenteFake.getCognome() + "@example.com");
 	utenteFake.setNumeroTelefono(fake.phoneNumber().cellPhone());
 	utenteFake.setPassword(fake.letterify("00????00"));	
-	utenteFake.setPrenotazioni(prenotazioni);
+//	utenteFake.setPrenotazioni(prenotazioni);
 	utenteFake.setFeedback(feedback);
 	return utenteFake;
 	}

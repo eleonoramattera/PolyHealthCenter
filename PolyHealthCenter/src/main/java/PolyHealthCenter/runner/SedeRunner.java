@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -29,7 +31,7 @@ public class SedeRunner implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("sedi runner..");
-		
+      
 		if (repo.findAll().isEmpty()) {
 
 		//	setSedi();

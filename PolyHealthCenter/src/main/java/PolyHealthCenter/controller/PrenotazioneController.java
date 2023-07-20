@@ -41,20 +41,20 @@ public class PrenotazioneController {
 	
 	
 	@PostMapping
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<?> createPrentazione(@RequestBody Prenotazione prenotazione) {
 		return new ResponseEntity<Prenotazione>(service.salvaPrenotazione(prenotazione), HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/{id}")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+//	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 	public ResponseEntity<?> updatePrenotazione(@RequestBody Prenotazione prenotazione, @PathVariable Long id) {
 		return ResponseEntity.ok(service.updatePrenotazione(prenotazione, id));
 
 	}
 	
 	@DeleteMapping("/{id}")
-	@PreAuthorize("hasRole('USER')")
+//	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<String> deleteVacanza(@PathVariable Long id){
 		return new ResponseEntity<String>(service.deletePrenotazione(id), HttpStatus.OK);
 	}

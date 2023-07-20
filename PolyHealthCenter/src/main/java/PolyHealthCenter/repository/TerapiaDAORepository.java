@@ -10,6 +10,7 @@ import PolyHealthCenter.model.Terapia;
 public interface TerapiaDAORepository extends JpaRepository<Terapia, Long>{
  
 	public boolean existsByNome(String name);
+	public Terapia findByNome(String nome);
 	
 	@Query(value="SELECT t FROM Terapia t ORDER BY RANDOM() LIMIT 1")
 	Terapia findByTerapiaRandom();

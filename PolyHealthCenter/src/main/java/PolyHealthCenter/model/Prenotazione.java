@@ -1,10 +1,16 @@
 package PolyHealthCenter.model;
 
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import PolyHealthCenter.security.entity.User;
 import jakarta.persistence.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,26 +35,51 @@ import lombok.NoArgsConstructor;
 @Table(name = "prenotazioni")
 public class Prenotazione {
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	
-	@OneToOne
-	private Terapia terapia;
 
-	@ManyToOne
-	private Sede sede;
 	
-	@Column(nullable=false,name="data_prenotazione")
-	@JsonFormat(pattern="dd-MM-yyyy")
-	private LocalDate dataPrenotazione;
+//	@OneToOne
+//	private Terapia terapia;
+//
+//
+//	@ManyToOne
+//	private Sede sede;
+  
+	private String nomeTerapia;
+	private String sede;
+	private String nomeUtente;
+	private String cognomeUtente;
+	private String emailUtente;
 	
-	@ManyToOne
-	@JoinTable(name = "prenotazione_utente",
-     joinColumns = @JoinColumn(name = "id_prenotazione"),
-	  inverseJoinColumns = @JoinColumn(name = "id_utente"))
-	private Utente utente;
+	@Column(name="data_prenotazione")
+	//@JsonFormat(pattern="yyyy-MM-dd")	@JsonFormat(pattern="yyyy-MM-dd HH:mm")
+	@JsonFormat( pattern = "yyyy-MM-dd'T'HH:mm")
+	
+	private LocalDateTime dataPrenotazione;
+
+
+	public Prenotazione(String nomeTerapia, String sede, String nomeUtente, String cognomeUtente, String  emailUtente,
+			LocalDateTime  dataPrenotazione) {
+		super();
+		this.nomeTerapia = nomeTerapia;
+		this.sede = sede;
+		this.nomeUtente = nomeUtente;
+		this.cognomeUtente = cognomeUtente;
+		this.emailUtente =  emailUtente;
+		this.dataPrenotazione = dataPrenotazione;
+	}
+		
+
+	
+	
+//	@ManyToOne
+//	@JoinTable(name = "prenotazione_utente",
+//     joinColumns = @JoinColumn(name = "id_prenotazione"),
+//	  inverseJoinColumns = @JoinColumn(name = "id_utente"))
+//	private Utente utente;
 	
 //	@JsonIgnore
 //	@ManyToMany
@@ -57,13 +88,13 @@ public class Prenotazione {
 //			  inverseJoinColumns = @JoinColumn(name = "id_utente"))
 //	private List<Utente> utente;
 //	
-	public Prenotazione(Utente utente, Terapia terapia, LocalDate dataPrenotazione, Sede sede) {
-		super();
-		this.utente = utente;
-		this.terapia = terapia;
-		this.dataPrenotazione = dataPrenotazione;
-		this.sede = sede;
-	}
+//	public Prenotazione( Terapia terapia, LocalDate dataPrenotazione, Sede sede) {
+//		super();
+//
+//		this.terapia = terapia;
+//		this.dataPrenotazione = dataPrenotazione;
+//		this.sede = sede;
+//	}
 
 	
 }
