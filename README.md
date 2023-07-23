@@ -5,13 +5,13 @@ E' inoltre possibile visualizzare su una mappa e scegliere la filiale della clin
 
 ## Tecnologie utilizzate Front-End:
 HTML, CSS, SASS, Bootstrap, JavaScript, React Redux, React Router Dom
-# Tecnologie utilizzate Back-End:
+## Tecnologie utilizzate Back-End:
 Java, SpringBoot, PostgreSQL, JWT Authentication, JPA
 
-# Istruzioni per eseguire Progetto:
+## Istruzioni per eseguire Progetto:
 - scaricare repo backend
 - aprire la cartella backend con eclipse
-- creare Database "polyhealth_center" (oppure è cambiare il nome nel file application.properties in BackEnd\polyhealthcenter\src\main\resources
+- creare Database "polyhealth_center" (oppure è cambiare il nome nel file application.properties in BackEnd\polyhealthcenter\src\main\resources)
 - runnare l'app -> Run As SpringBootApp
 - scaricare repo frontend ->"[PolyHealtCenter_FrontEnd](https://github.com/eleonoramattera/polyhealthcenter_frontend)"
 - aprire cartella FrontEnd
