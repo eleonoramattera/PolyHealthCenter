@@ -13,7 +13,8 @@ Java, SpringBoot, PostgreSQL, JWT Authentication, JPA
 -aprire la cartella backend con eclipse
 -creare Database "polyhealth_center" (oppure è cambiare il nome nel file application.properties in BackEnd\polyhealthcenter\src\main\resources
 -runnare l'app -> Run As SpringBootApp
--scaricare repo frontend ->"(https://github.com/eleonoramattera/polyhealthcenter_frontend)https://github.com/eleonoramattera/polyhealthcenter_frontend)"
+-scaricare repo frontend ->
+"[PolyHealtCenter_FrontEnd](https://github.com/eleonoramattera/polyhealthcenter_frontend)"
 -aprire cartella FrontEnd
 - eseguire npm start
 
